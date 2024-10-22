@@ -1,6 +1,6 @@
 
 # OpenCue Render Manager System Deployment
-
+![distubution](./img/OpenCue1.gif)
 This repository provides a deployment system for the **OpenCue Render Manager** across various platforms, including Linux, macOS, and Windows. Since OpenCue is a Python-based system, this deployment is designed to function seamlessly in a Windows environment as well, utilizing a virtual environment setup and a shared server.
 
 the original repo : https://github.com/AcademySoftwareFoundation/OpenCue/releases
@@ -27,9 +27,27 @@ the original documentation : https://www.opencue.io/docs/getting-started/
 
 3. **Shared Storage Sync:** All Windows and macOS devices synchronize their configurations with the central shared storage.
 
-## Installation
+## Usage
 
 ### Linux (cuebot server)
-1. Install necessary dependencies:
+1. Install necessary dependencies from original documentation:
+   make suer to set database user and password in cuebot_init.sh file and edit opencue.service path
    ```bash
-   sudo apt-get install postgresql openjdk-11-jre
+   https://www.opencue.io/docs/getting-started/
+   sudo systemctl start opencue.service
+   sudo systemctl enable opencue.service
+   
+### Windows (workers)
+1. pull the original repo:
+2. create Venv (I recommend using python 3.7):
+3. run install.bat as admin:
+
+
+##Scripts Overview
+cuebot_init.sh: A Bash script to initialize the cuebot service on a Linux server. It sets the environment variables and starts the cuebot using the provided .jar file and 
+PostgreSQL credentials.
+
+install.bat: A Batch script that installs the virtual environment and dependencies on a Windows machine, allowing workers to sync with the shared storage.
+
+
+
