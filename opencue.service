@@ -1,0 +1,9 @@
+[Unit]
+Description = run cuebot service 
+After = network.target
+
+[Service]
+ExecStart = /OpenCue-files/cuebot_init.sh
+
+[Install]
+WantedBy = multi-user.target
