@@ -1,8 +1,8 @@
 #! /bin/bash
 
 export DB_NAME=cuebot_local
-export DB_USER=cuebot
-export DB_PASS=Transformer8520
+export DB_USER=(DATABASA-USER)
+export DB_PASS=(DATABASA-Password)
 
 export JAR_PATH=/OpenCue-files/cuebot-0.22.14-all.jar
 
