@@ -52,7 +52,7 @@ the original documentation : https://www.opencue.io/docs/getting-started/
 ![RQD](./img/RQD.png)
 
 
-### WIndows (Artists)
+### Windows (Artists)
 
 #### CueGUI
 ![CueGUI](./img/cueGUI.png)
