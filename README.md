@@ -42,12 +42,23 @@ the original documentation : https://www.opencue.io/docs/getting-started/
    sudo systemctl start opencue.service
    sudo systemctl enable opencue.service
 
-![distubution](./img/server.png)
+![server](./img/server.png)
    
 ### Windows (workers)
 1. pull the original repo:
 2. create Venv (I recommend using python 3.7):
 3. run install.bat as admin:
+
+![RQD](./img/RQD.png)
+
+
+### WIndows (Artists)
+
+#### CueGUI
+![CueGUI](./img/cueGUI.png)
+
+#### CueSubmit
+![CueSubmit](./img/submit.png)
 
 
 ##Scripts Overview
