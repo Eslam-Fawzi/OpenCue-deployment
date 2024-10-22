@@ -61,7 +61,7 @@ the original documentation : https://www.opencue.io/docs/getting-started/
 ![CueSubmit](./img/submit.png)
 
 
-##Scripts Overview
+## Scripts Overview
 cuebot_init.sh: A Bash script to initialize the cuebot service on a Linux server. It sets the environment variables and starts the cuebot using the provided .jar file and 
 PostgreSQL credentials.
 
