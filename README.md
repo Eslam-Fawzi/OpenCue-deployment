@@ -4,6 +4,7 @@
 This repository provides a deployment system for the **OpenCue Render Manager** across various platforms, including Linux, macOS, and Windows. Since OpenCue is a Python-based system, this deployment is designed to function seamlessly in a Windows environment as well, utilizing a virtual environment setup and a shared server.
 
 the original repo : https://github.com/AcademySoftwareFoundation/OpenCue/releases
+
 the original documentation : https://www.opencue.io/docs/getting-started/
 
 
