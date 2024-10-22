@@ -1,0 +1,50 @@
+Overview
+This documentation outlines the deployment process for the OpenCue Render Manager System, focusing on a cross-platform approach that includes Linux, macOS, and Windows. The main challenge was to support Windows environments, which was achieved by using Python and virtual environments.
+
+This project ensures centralized deployment, worker synchronization, and ease of use across all platforms, especially for artists’ machines and rendering workers.
+
+System Components
+1. Cuebot Server (Linux)
+The Cuebot server is the central control component for OpenCue, running on a dedicated Linux machine.
+
+cuebot_init.sh: This is the main script used to initialize and run Cuebot. The script sets environment variables for PostgreSQL database credentials and the path to the cuebot .jar file. It starts the Cuebot server using Java.
+
+Key Elements:
+
+PostgreSQL database credentials (DB_NAME, DB_USER, DB_PASS).
+
+2. Windows Workers
+Windows machines serve as workers, where a virtual environment (venv) is hosted on a shared storage. The workers synchronize their environments from the shared storage, ensuring uniformity.
+
+install.bat: This Batch script is used to set up the OpenCue environment on Windows workers, including Python version control. It creates a virtual environment and synchronizes the worker with the shared storage to ensure consistency.
+
+Key Elements:
+
+Takes a Python version as a parameter.
+Activates a virtual environment, and syncs it with the central server.
+
+Deployment Process
+Linux (Cuebot Server)
+Install Dependencies: Install PostgreSQL and Java:
+Edit the cuebot_init.sh:
+Modify the environment variables in the cuebot_init.sh script to fit your environment, particularly the DB_HOST, DB_NAME, CUE_FS_ROOT, and the path to the .jar file.
+
+Service Setup:
+
+Create a systemd service file (e.g., opencue.service) in /etc/systemd/system/.
+Use the service configuration example mentioned earlier.
+
+Windows Workers
+Prepare the Shared Storage: Ensure that the virtual environment and necessary dependencies are available on a shared server that is accessible from all Windows machines.
+Run the install.bat Script: On each worker machine, run the install.bat script to set up the Python environment and sync the worker with the shared storage.
+
+Workflow Summary
+Cuebot Server: Managed on a Linux machine via cuebot_init.sh and a systemd service.
+Windows Workers: Each worker machine uses the install.bat script to set up the Python environment and synchronize with the shared storage.
+Synchronization: All configurations and dependencies are centrally stored on the shared storage, ensuring all workers are always in sync.
+Key Considerations
+Cross-Platform Compatibility: This system is designed to work across Linux and Windows platforms. Ensure all shared storage and network permissions are properly configured.
+
+Cuebot Logs: Logs are stored at ${CUE_FS_ROOT}/logs on the Linux server, which can be customized via environment variables.
+
+Network Accessibility: Ensure that the workers have access to the Cuebot server on the Linux machine, and also that the shared storage is reachable by all Windows and macOS devices for synchronization.
